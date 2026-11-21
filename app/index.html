@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GTA6 Cover Art Editor</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="app-container">
+  <aside class="controls-panel">
+    <header class="panel-header">
+      <h2>Cover Studio</h2>
+    </header>
+
+    <div class="control-group upload-group">
+      <label class="upload" for="photo">
+        <span>Add Photos (Max 5)</span>
+        <input id="photo" type="file" accept="image/*" multiple>
+      </label>
+    </div>
+
+    <div class="control-group">
+      <label>Layout</label>
+      <div class="button-grid layout-buttons">
+        <button type="button" class="layout-btn is-active" data-layout="hero" aria-pressed="true">Hero</button>
+        <button type="button" class="layout-btn" data-layout="grid5" aria-pressed="false">Grid 5</button>
+        <button type="button" class="layout-btn" data-layout="overlay" aria-pressed="false">Overlay</button>
+        <button type="button" class="layout-btn" data-layout="band" aria-pressed="false">Band</button>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label>Color Grade</label>
+      <div class="button-grid grade-buttons">
+        <button type="button" class="grade-btn is-active" data-grade="heatwave" aria-pressed="true">Heatwave</button>
+        <button type="button" class="grade-btn" data-grade="golden" aria-pressed="false">Golden</button>
+        <button type="button" class="grade-btn" data-grade="neon" aria-pressed="false">Neon</button>
+        <button type="button" class="grade-btn" data-grade="noir" aria-pressed="false">Noir</button>
+        <button type="button" class="grade-btn" data-grade="mono" aria-pressed="false">Mono</button>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label for="title">Title</label>
+      <input id="title" type="text" value="SUNSET HEIST" maxlength="30">
+    </div>
+
+    <div class="control-group">
+      <label for="subtitle">Subtitle</label>
+      <input id="subtitle" type="text" value="Coastline Nights" maxlength="40">
+    </div>
+
+    <div class="control-group">
+      <label for="tagline">Tagline</label>
+      <input id="tagline" type="text" value="ONE LAST SCORE — SUMMER 2026" maxlength="50">
+    </div>
+
+    <div class="control-group">
+      <label for="badge">Badge</label>
+      <input id="badge" type="text" value="EST. 2026" maxlength="20">
+    </div>
+
+    <div class="control-group">
+      <label for="stars">Stars</label>
+      <select id="stars">
+        <option value="1">1 Star</option>
+        <option value="2">2 Stars</option>
+        <option value="3">3 Stars</option>
+        <option value="4">4 Stars</option>
+        <option value="5" selected>5 Stars</option>
+      </select>
+    </div>
+
+    <div class="control-group panels-section">
+      <label>Panel Management & Panning</label>
+      <div class="panel-slots-row">
+        <button type="button" class="panel-slot is-active" data-panel="0" aria-pressed="true">P1</button>
+        <button type="button" class="panel-slot" data-panel="1" aria-pressed="false">P2</button>
+        <button type="button" class="panel-slot" data-panel="2" aria-pressed="false">P3</button>
+        <button type="button" class="panel-slot" data-panel="3" aria-pressed="false">P4</button>
+        <button type="button" class="panel-slot" data-panel="4" aria-pressed="false">P5</button>
+        <button type="button" class="panel-slot" data-panel="5" aria-pressed="false">P6</button>
+      </div>
+      <div class="panel-config-row">
+        <label>P1: <select class="panel-photo" data-panel="0"><option value="0">Photo 1</option></select></label>
+        <label>P2: <select class="panel-photo" data-panel="1"><option value="0">Photo 1</option></select></label>
+        <label>P3: <select class="panel-photo" data-panel="2"><option value="0">Photo 1</option></select></label>
+        <label>P4: <select class="panel-photo" data-panel="3"><option value="0">Photo 1</option></select></label>
+        <label>P5: <select class="panel-photo" data-panel="4"><option value="0">Photo 1</option></select></label>
+        <label>P6: <select class="panel-photo" data-panel="5"><option value="0">Photo 1</option></select></label>
+      </div>
+      <div class="zoom-controls">
+        <span>Zoom:</span>
+        <button type="button" id="zoom-out">-</button>
+        <div class="zoom-readout"><span>100%</span></div>
+        <button type="button" id="zoom-in">+</button>
+      </div>
+    </div>
+
+    <div class="control-group export-group">
+      <label>Export Cover</label>
+      <div class="export-buttons">
+        <button type="button" id="export-square" class="export-btn">Square (1080×1080)</button>
+        <button type="button" id="export-tall" class="export-btn">Tall (1080×1350)</button>
+        <button type="button" id="export-wide" class="export-btn">Wide (1920×1080)</button>
+      </div>
+    </div>
+
+    <footer class="panel-footer">
+      <div id="status" role="status" class="is-ok">
+        <span class="status-dot"></span>
+        <span class="status-text">Ready</span>
+      </div>
+    </footer>
+  </aside>
+
+  <main class="canvas-area">
+    <div class="canvas-wrapper">
+      <canvas id="cover" width="1080" height="1080" aria-label="Cover Art Preview"></canvas>
+    </div>
+  </main>
+</div>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
